@@ -31,3 +31,5 @@
   >Sign out</a
 >
 </div>
+
+<footer class="footer p-10 bg-neutral text-neutral-content bottom-0 absolute right-0 h-16">
