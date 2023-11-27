@@ -28,6 +28,8 @@
         works in outer space.
       </p>
     </div>
+    <p>{{ $t('greetings') }}</p>
+
     <!-- Dark mode not enabled -->
     <html>
       <body>
@@ -55,3 +57,8 @@
     </button>
   </main>
 </template>
+
+<script setup>
+  // import { usei18n } from 'vue-i18n';
+  // const { t } = usei18n();
+</script>

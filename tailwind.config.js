@@ -2,8 +2,11 @@
 export default {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
-    themes: ['synthwave,'],
+    // themes: ['synthwave,'],
     extend: {},
+  },
+  daisyui: {
+    themes: ['cyberpunk', 'coffee', 'synthwave'],
   },
   colors: {
     blue: '#1fb6ff',

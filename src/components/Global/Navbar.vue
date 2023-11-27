@@ -69,20 +69,21 @@
               <a
                 href="/testSite"
                 class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
-                >Produktside</a
+                >{{ $t('navbar.productpage') }}</a
               >
               <a
                 href="/minside"
                 class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
-                >Min side</a
+                >{{ $t('navbar.pagetitle') }}</a
               >
               <a
                 href="/omoss"
                 class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
-                >Om oss</a
+                >{{ $t('navbar.pageus') }}</a
               >
             </div>
           </div>
+          <LanguageSelector />
         </div>
         <div
           class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
@@ -192,4 +193,6 @@
     </div>
   </nav>
 </template>
-<script setup></script>
+<script setup>
+  import LanguageSelector from '@/components/Global/SelectLocale.vue';
+</script>
