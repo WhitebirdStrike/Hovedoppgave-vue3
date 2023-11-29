@@ -20,8 +20,12 @@
       ></span>
       <span class="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
     </span>
+
+    <pre>{{ myProducts[0] }}</pre>
     <div class="card w-96 bg-base-100 shadow-x1">
-      <img />
+      <div v-for="(product, productIndex) in myProducts" :key="productIndex">
+      <img :src="product.productImage" alt="" />
+    </div>
       <div class="card-body">
         <h2 class="card-title"></h2>
         <div class="card-actions justify-end"></div>
