@@ -3,12 +3,6 @@
   <main class="container mx-auto px-4 s">
     <div class="md:mt-10">Hallo dette er en side</div>
 
-    <pre>{{ myProducts }}</pre>
-
-    <div v-for="(product, productIndex) in myProducts" :key="productIndex">
-      <img :src="product.productImage" alt="" />
-    </div>
-
     <button
       class="transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 ..."
     >
@@ -21,14 +15,20 @@
       <span class="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
     </span>
 
-    <pre>{{ myProducts[0] }}</pre>
-    <div class="card w-96 bg-base-100 shadow-x1">
-      <div v-for="(product, productIndex) in myProducts" :key="productIndex">
-      <img :src="product.productImage" alt="" />
-    </div>
-      <div class="card-body">
-        <h2 class="card-title"></h2>
-        <div class="card-actions justify-end"></div>
+    <!-- <pre>{{ myProducts[0] }}</pre> -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
+      <div
+        v-for="(product, productIndex) in myProducts"
+        :key="productIndex"
+        class="max-w-96 flex-1 card-container"
+      >
+        <div class="card bg-base-100 shadow-x1 border-hotpink-2">
+          <img :src="product.productImage" alt="" class="w-full h-16 object-contain" />
+          <div class="card-body p-4">
+            <h2 class="text-center text-1xl">{{ product.Title }}</h2>
+            <div class="card-actions justify-end"></div>
+          </div>
+        </div>
       </div>
     </div>
   </main>
@@ -38,12 +38,30 @@
   import { ref } from 'vue';
 
   import HopePerk from '@/assets/pictures/IconPerks_hope.webp';
+  import ResiliencePerk from '@/assets/pictures/IconPerks_resilience.webp';
+  import AdrenalinePerk from '@/assets/pictures/IconPerks_adrenaline.webp';
+  import SprintBurstPerk from '@/assets/pictures/IconPerks_sprintBurst.webp';
 
   const myProducts = ref([
     {
-      productTitle: 'Sko',
+      Title: 'Hope',
       productDescription: 'En sko',
       productImage: HopePerk,
+    },
+    {
+      Title: 'Resilience',
+      productDescription: 'Good perk',
+      productImage: ResiliencePerk,
+    },
+    {
+      Title: 'Adrenaline',
+      productDescription: 'Description',
+      productImage: AdrenalinePerk,
+    },
+    {
+      Title: 'Sprint Burst',
+      productDescription: 'Stuff',
+      productImage: SprintBurstPerk,
     },
   ]);
 </script>

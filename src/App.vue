@@ -1,7 +1,10 @@
 <template>
-  <Navbar />
-  <RouterView />
-  <Footer />
+  <div class="flex flex-col min-h-screen">
+    <!-- Page content here -->
+    <Navbar />
+    <RouterView />
+    <Footer />
+  </div>
 </template>
 <script setup>
   import { RouterLink, RouterView } from 'vue-router';

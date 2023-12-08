@@ -54,3 +54,10 @@
       <a class="link link-hover">Marketing</a>
       <a class="link link-hover">Advertisement</a>
     </nav>
+
+    <template>
+  <div class="flex flex-col min-h-screen"></div>
+  <footer
+    class="footer p-10 bg-neutral text-neutral-content bottom-0 absolute right-0 mt-auto"
+  ></footer>
+</template>
