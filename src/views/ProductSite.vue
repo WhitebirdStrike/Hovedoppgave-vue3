@@ -22,13 +22,55 @@
         :key="productIndex"
         class="max-w-96 flex-1 card-container"
       >
-        <div class="card bg-base-100 shadow-x1 border-hotpink-2">
+        <div @click="openModal(product)" class="card bg-base-100 shadow-x1 border-hotpink-2">
           <img :src="product.productImage" alt="" class="w-full h-16 object-contain" />
           <div class="card-body p-4">
             <h2 class="text-center text-1xl">{{ product.Title }}</h2>
             <div class="card-actions justify-end"></div>
           </div>
         </div>
+      </div>
+    </div>
+    <div v-if="modalIsOpen">
+      <div
+        class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg"
+      >
+        <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+          <div class="sm:flex sm:items-start">
+            <div
+              class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10"
+            ></div>
+            <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+              <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">
+                {{ modalData.Title }}
+              </h3>
+              <div class="mt-2">
+                <p class="text-sm text-gray-500">{{ modalData.productDescription }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button
+        @click="closeModal()"
+        type="button"
+        class="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
+      >
+        Close
+      </button>
+      <button
+        @click="openToast()"
+        type="button"
+        class="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
+      >
+        Buy
+      </button>
+    </div>
+    <!-- ToastIsOpen -->
+    <div v-if="ToastIsOpen" class="toast toast-end">
+      <div class="alert alert-success">
+        <span>Product bought</span>
       </div>
     </div>
   </main>
@@ -45,17 +87,20 @@
   const myProducts = ref([
     {
       Title: 'Hope',
-      productDescription: 'En sko',
+      productDescription:
+        'Hope is a perk that gives you 7% haste status effect when the exit gates are open. This perk is really good because of how much faster you get with it and the fact that some slower killers cant catch you if you use it',
       productImage: HopePerk,
     },
     {
       Title: 'Resilience',
-      productDescription: 'Good perk',
+      productDescription:
+        'This perk gives you a 9% boost to everything exept haste if you are injured. This perk is just great by the fact that you will be injured at some point in the match',
       productImage: ResiliencePerk,
     },
     {
       Title: 'Adrenaline',
-      productDescription: 'Description',
+      productDescription:
+        'Adrenaline is a perk that gives you one healthstate and sprint for 150% for 5 seconds when the exit gates are powered. The reason for this being so powerfull is simply because it heals you and makes you get away if the killer is chasing you. If you are carried while the effect goes off it makes it so that it activates when you get unhooked which basicly grants you a free escape',
       productImage: AdrenalinePerk,
     },
     {
@@ -64,4 +109,33 @@
       productImage: SprintBurstPerk,
     },
   ]);
+
+  const modalIsOpen = ref(false);
+
+  const modalData = ref([]);
+  const openModal = (ProductData) => {
+    console.log('hallo', ProductData);
+    modalData.value = ProductData;
+    modalIsOpen.value = true;
+  };
+
+  const closeModal = () => {
+    modalData.value = [];
+    modalIsOpen.value = false;
+  };
+
+  const ToastIsOpen = ref(false);
+  const toastData = ref([]);
+
+  const openToast = () => {
+    ToastIsOpen.value = true;
+    setTimeout(() => {
+      ToastIsOpen.value = false;
+    }, 5000);
+  };
+
+  const closeToast = () => {
+    toastData.value = [];
+    toastIsOpen.value = false;
+  };
 </script>

@@ -61,3 +61,15 @@
     class="footer p-10 bg-neutral text-neutral-content bottom-0 absolute right-0 mt-auto"
   ></footer>
 </template>
+
+<div v-for="(product, productIndex) in myProducts" :key="productIndex" class="flex">
+      <div class="card w-96 bg-base-100 shadow-x1" style="border: solid hotpink 2px">
+        <img :src="product.productImage" alt="" />
+        <div class="card-body">
+          <h2 class="card-title">{{ product.Title }}</h2>
+          <div class="card-actions justify-end"></div>
+        </div>
+      </div>
+    </div>
+    <span class="absolute -inset-1.5"></span>
+    <button @click="closeModal() ">Close</button>
