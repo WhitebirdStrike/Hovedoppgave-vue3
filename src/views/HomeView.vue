@@ -61,4 +61,5 @@
 <script setup>
   // import { usei18n } from 'vue-i18n';
   // const { t } = usei18n();
+  // data = objects, arrays, strings, numbers, booleans, and null values.
 </script>

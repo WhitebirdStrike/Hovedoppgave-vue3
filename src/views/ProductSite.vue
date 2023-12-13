@@ -60,7 +60,7 @@
         Close
       </button>
       <button
-        @click="openToast()"
+        @click="openToast(modalData)"
         type="button"
         class="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
       >
@@ -105,7 +105,8 @@
     },
     {
       Title: 'Sprint Burst',
-      productDescription: 'Stuff',
+      productDescription:
+        'Sprint Burst is a perk that makes you run at 150% of your normal running speed when you start running and makes you exhausted for 40 sec. It is the best exhaustion perk in the whole game because it can be used everywhere and in so many situations.',
       productImage: SprintBurstPerk,
     },
   ]);
@@ -127,7 +128,8 @@
   const ToastIsOpen = ref(false);
   const toastData = ref([]);
 
-  const openToast = () => {
+  const openToast = (selectedItem) => {
+    localStorage.setItem('selectedItem', JSON.stringify(selectedItem));
     ToastIsOpen.value = true;
     setTimeout(() => {
       ToastIsOpen.value = false;
@@ -137,5 +139,15 @@
   const closeToast = () => {
     toastData.value = [];
     toastIsOpen.value = false;
+  };
+  const pushToBoughtProducts = (product) => {
+    // Hent alle eksisterende produkter fra localstorage eller ett tomt array om det ikke er noen.
+    const existingProducts = JSON.parse(localStorage.getItem('boughtProducts')) || [];
+
+    // Legg det nye produktet til arrayet
+    existingProducts.push(product);
+
+    // Lagre det oppdaterte produktet til Localstorage
+    localStorage.setItem('boughtProducts', JSON.stringify(existingProducts));
   };
 </script>
