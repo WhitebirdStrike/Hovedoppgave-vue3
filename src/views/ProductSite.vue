@@ -83,6 +83,7 @@
   import ResiliencePerk from '@/assets/pictures/IconPerks_resilience.webp';
   import AdrenalinePerk from '@/assets/pictures/IconPerks_adrenaline.webp';
   import SprintBurstPerk from '@/assets/pictures/IconPerks_sprintBurst.webp';
+  import OffTheRecordPerk from '@/assets/pictures/IconPerks_offTheRecord.webp';
 
   const myProducts = ref([
     {
@@ -109,6 +110,11 @@
         'Sprint Burst is a perk that makes you run at 150% of your normal running speed when you start running and makes you exhausted for 40 sec. It is the best exhaustion perk in the whole game because it can be used everywhere and in so many situations.',
       productImage: SprintBurstPerk,
     },
+    {
+      Title: 'Off The Record',
+      productDescription:
+        'Off The Record is the best anti tunneling perk in the game. When you get unhooked or unhook yourself you get 80 seconds of no grunts of pain, killer not being able to see you with any kind of aurareading, and you have endurance. The endurance will be removed if you do a conspicious action though, which basicly boils down to actions that progress the game or improves your survival. One wierd trivia is that it does not get turned off by Any Means Nessesary, even though that would be a thing to improve your survival',
+    },
   ]);
 
   const modalIsOpen = ref(false);
@@ -129,13 +135,26 @@
   const toastData = ref([]);
 
   const openToast = (selectedItem) => {
-    localStorage.setItem('selectedItem', JSON.stringify(selectedItem));
+    // Retrieve existing items from localStorage
+    const existingItemsJSON = localStorage.getItem('items');
+
+    // Check if the array already exists in localStorage
+    const itemsArray = existingItemsJSON ? JSON.parse(existingItemsJSON) : [];
+
+    // Push the new selectedItem object into the array
+    itemsArray.push(selectedItem);
+
+    // Store the updated array back in localStorage
+    localStorage.setItem('items', JSON.stringify(itemsArray));
+
+    // Set the value of ToastIsOpen to true
     ToastIsOpen.value = true;
+
+    // Use setTimeout to close the toast after 5 seconds
     setTimeout(() => {
       ToastIsOpen.value = false;
     }, 5000);
   };
-
   const closeToast = () => {
     toastData.value = [];
     toastIsOpen.value = false;
