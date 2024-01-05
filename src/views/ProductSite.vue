@@ -77,7 +77,7 @@
 </template>
 
 <script setup>
-  import { ref } from 'vue';
+  import { onMounted, ref } from 'vue';
 
   import HopePerk from '@/assets/pictures/IconPerks_hope.webp';
   import ResiliencePerk from '@/assets/pictures/IconPerks_resilience.webp';
@@ -114,6 +114,7 @@
       Title: 'Off The Record',
       productDescription:
         'Off The Record is the best anti tunneling perk in the game. When you get unhooked or unhook yourself you get 80 seconds of no grunts of pain, killer not being able to see you with any kind of aurareading, and you have endurance. The endurance will be removed if you do a conspicious action though, which basicly boils down to actions that progress the game or improves your survival. One wierd trivia is that it does not get turned off by Any Means Nessesary, even though that would be a thing to improve your survival',
+      productImage: OffTheRecordPerk,
     },
   ]);
 
@@ -169,4 +170,22 @@
     // Lagre det oppdaterte produktet til Localstorage
     localStorage.setItem('boughtProducts', JSON.stringify(existingProducts));
   };
+
+  const sortByProducts = () => {
+    myProducts.value.sort((a, b) => {
+      const productNameA = a.Title.toUpperCase();
+      const productNameB = b.Title.toUpperCase();
+      if (productNameA < productNameB) {
+        return -1;
+      }
+      if (productNameA < productNameB) {
+        return 1;
+      }
+      return 0;
+    });
+  };
+
+  onMounted(() => {
+    sortByProducts();
+  });
 </script>

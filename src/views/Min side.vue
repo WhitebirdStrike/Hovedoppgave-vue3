@@ -2,6 +2,7 @@
   <!-- <p id="date"></p> -->
   <main class="mt-10 container mx-auto px-4">
     <p>{{ formattedDate }}</p>
+    <button @click="sortByProducts()">Sort alphabetically</button>
     <table class="table-fixed">
       <thead>
         <tr>
@@ -23,9 +24,15 @@
 <script setup>
   import { computed, ref, onMounted } from 'vue';
 
-  const getSelectedItems = computed(() => {
-    return JSON.parse(localStorage.getItem('items'));
-  });
+  // const getSelectedItems = computed(() => {
+  //   return JSON.parse(localStorage.getItem('items'));
+  // });
+
+  const getSelectedItems = ref([]);
+
+  const getSelectedItemsFromLocalstorage = () => {
+    getSelectedItems.value = JSON.parse(localStorage.getItem('items'));
+  };
   // const existingProducts = JSON.parse(localStorage.getItem('boughtProducts')) || [];
   // let day;
   // switch (new Date().getDay()) {
@@ -56,6 +63,7 @@
 
   onMounted(() => {
     updateFormattedDate();
+    getSelectedItemsFromLocalstorage();
   });
 
   const updateFormattedDate = () => {
@@ -75,4 +83,23 @@
   const formatNumber = (number) => {
     return number < 10 ? `0${number}` : `${number}`;
   };
+
+  const sortByProducts = () => {
+    getSelectedItems.value.sort((a, b) => {
+      const productNameA = a.Title.toUpperCase();
+      const productNameB = b.Title.toUpperCase();
+      if (productNameA < productNameB) {
+        return -1;
+      }
+      if (productNameA < productNameB) {
+        return 1;
+      }
+      return 0;
+    });
+  };
+
+  // onMounted(() => {
+  //   // sortByProducts();
+  //   getSelectedItemsFromLocalstorage();
+  // });
 </script>
