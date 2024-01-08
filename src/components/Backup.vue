@@ -88,3 +88,38 @@
                   d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
                 />
               </svg>
+              // onMounted(() => {
+  //   // sortByProducts();
+  //   getSelectedItemsFromLocalstorage();
+  // });
+
+  // const existingProducts = JSON.parse(localStorage.getItem('boughtProducts')) || [];
+  // let day;
+  // switch (new Date().getDay()) {
+  //   case 0:
+  //     day = 'Sunday';
+  //     break;
+  //   case 1:
+  //     day = 'Monday';
+  //     break;
+  //   case 2:
+  //     day = 'Tuesday';
+  //     break;
+  //   case 3:
+  //     day = 'Wednesday';
+  //     break;
+  //   case 4:
+  //     day = 'Thursday';
+  //     break;
+  //   case 5:
+  //     day = 'Friday';
+  //     break;
+  //   case 6:
+  //     day = 'Saturday';
+  //     break;
+  // }
+  // document.getElementById('date').innerHTML = 'Today is' + day;
+
+  // const getSelectedItems = computed(() => {
+  //   return JSON.parse(localStorage.getItem('items'));
+  // });

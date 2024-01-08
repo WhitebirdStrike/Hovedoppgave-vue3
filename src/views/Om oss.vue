@@ -67,6 +67,7 @@
   const itemTest = ref(['Item 1', 'Item 2', 'Item 3']);
 
   const deleteItemTest = (index) => {
+    console.log();
     itemTest.value.splice(index, 1);
   };
 </script>

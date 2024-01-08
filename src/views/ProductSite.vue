@@ -132,6 +132,7 @@
     modalIsOpen.value = false;
   };
 
+  // Toast for confirmation of bought product
   const ToastIsOpen = ref(false);
   const toastData = ref([]);
 
