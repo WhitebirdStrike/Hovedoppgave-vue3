@@ -123,3 +123,249 @@
   // const getSelectedItems = computed(() => {
   //   return JSON.parse(localStorage.getItem('items'));
   // });
+        <!-- Modal for delete confirmation -->
+        <div v-if="deleteConfirmationModalVisible">
+      <div class="modal-overlay" @click="closeDeleteConfirmation"></div>
+      <div class="modal">
+        <p>Are you sure you want to remove the product?</p>
+        <button @click="confirmDelete">Yes</button>
+        <button @click="closeDeleteConfirmation">No</button>
+      </div>
+    </div>
+      </tbody>
+    </table>
+  </main>
+</template>
+
+const deleteConfirmationModalVisible = ref(false);
+let itemIndexToDelete = null;
+
+const openDeleteConfirmation = (index) => {
+  itemIndexToDelete = index;
+  deleteConfirmationModalVisible.value = true;
+};
+
+const confirmDelete = () => {
+  if (itemIndexToDelete !== null) {
+    deleteItem(itemIndexToDelete);
+    closeDeleteConfirmation();
+  }
+};
+
+const closeDeleteConfirmation = () => {
+  deleteConfirmationModalVisible.value = false;
+  itemIndexToDelete = null;
+};
+<td><button @click="deleteItem(perkIndex)">Delete</button></td>
+
+<template>
+  <!-- <p id="date"></p> -->
+  <p>{{ searchInput }}</p>
+  <div class="grid-cols-1 flex justify-end items-center pt-6 pr-6">
+    <input v-model="searchInput" placeholder="Search" />
+  </div>
+  <main class="mt-10 container mx-auto px-4">
+    <p>{{ formattedDate }}</p>
+    <button @click="sortByProducts()">Sort alphabetically</button>
+    <table class="table-fixed">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Image</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(perk, perkIndex) in itemsFiltered" :key="perkIndex">
+          <td class="p-5">{{ perk.Title }}</td>
+          <td>{{ perk.productDescription }}</td>
+          <td><img :src="perk.productImage" alt="" style="object-fit: cover" /></td>
+          <td>
+            <button class="btn" @click="isShowing = !isShowing">Delete</button>
+            <dialog id="my_modal_1" class="modal">
+              <div class="modal-box">
+                <h3 class="font-bold text-lg">Hello!</h3>
+                <p class="py-4">Press ESC key or click the button below to close</p>
+                <div class="modal-action">
+                  <form method="dialog">
+                    <!-- if there is a button in form, it will close the modal -->
+                    <button class="btn">Close</button>
+                  </form>
+                </div>
+              </div>
+            </dialog>
+          </td>
+        </tr>
+
+        <!-- Modal for delete confirmation -->
+      </tbody>
+    </table>
+    <div class="h-20 w-full bg-red-400 p-4" v-if="isShowing">
+      <button @click="deleteItem(perkIndex)">Delete</button>
+      <button class="btn" @click="closeModal">Cancel</button>
+    </div>
+  </main>
+</template>
+
+<script setup>
+  import { computed, ref, onMounted } from 'vue';
+
+  const getSelectedItems = ref([]);
+  const formattedDate = ref('');
+  const searchInput = ref('');
+
+  const isShowing = ref(false);
+
+  const sortByProducts = () => {
+    getSelectedItems.value.sort((a, b) => {
+      const productNameA = a.Title.toUpperCase();
+      const productNameB = b.Title.toUpperCase();
+      if (productNameA < productNameB) {
+        return -1;
+      }
+      if (productNameA > productNameB) {
+        return 1;
+      }
+      return 0;
+    });
+  };
+
+  const updateFormattedDate = () => {
+    const now = new Date();
+
+    const day = now.getDate();
+    const month = now.getMonth() + 1; // Months are zero-based
+    const year = now.getFullYear();
+    const hour = now.getHours();
+    const minute = now.getMinutes();
+
+    formattedDate.value = `${formatNumber(day)} ${formatNumber(month)} ${year} ${formatNumber(
+      hour
+    )} ${formatNumber(minute)}`;
+  };
+
+  const formatNumber = (number) => {
+    return number < 10 ? `0${number}` : `${number}`;
+  };
+
+  const itemsFiltered = computed(() => {
+    const searchTerm = searchInput.value.toLowerCase();
+    return getSelectedItems.value.filter((item) => item.Title.toLowerCase().includes(searchTerm));
+  });
+
+  const getSelectedItemsFromLocalstorage = () => {
+    getSelectedItems.value = JSON.parse(localStorage.getItem('items')) || [];
+  };
+
+  const deleteItem = (index) => {
+    getSelectedItems.value.splice(index, 1);
+    localStorage.setItem('items', JSON.stringify(getSelectedItems.value));
+  };
+
+  onMounted(() => {
+    updateFormattedDate();
+    getSelectedItemsFromLocalstorage();
+  });
+
+  const deleteConfirmationModalVisible = ref(false);
+  let itemIndexToDelete = null;
+
+  const openDeleteConfirmation = (index) => {
+    itemIndexToDelete = index;
+    deleteConfirmationModalVisible.value = true;
+  };
+
+  const confirmDelete = () => {
+    if (itemIndexToDelete !== null) {
+      deleteItem(itemIndexToDelete);
+      closeDeleteConfirmation();
+    }
+  };
+
+  const closeDeleteConfirmation = () => {
+    deleteConfirmationModalVisible.value = false;
+    itemIndexToDelete = null;
+  };
+  const closeModal = () => {
+    state.modalVisible.value = false;
+  };
+</script>
+<button type="button" class="bg-indigo-500 ..." disabled>
+  <svg class="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24">
+    <!-- ... -->
+  </svg>
+  Processing...
+</button>
+<h3 class="text-slate-900 dark:text-white mt-5 text-base font-medium tracking-tight">
+  Writes Upside-Down
+</h3>
+<p class="text-slate-500 dark:text-slate-400 mt-2 text-sm">
+  The Zero Gravity Pen can be used to write in any orientation, including upside-down. It even
+  works in outer space.
+</p>
+
+<template>
+  <!-- <main></main> -->
+  <main class="md:flex container mx-auto px-4">
+    <div class="h-10 w-full bg-red-400 lg:bg-yellow-400"></div>
+    <div class="h-10 w-full bg-blue-400"></div>
+    <div class="bg-white dark:bg-slate-800 rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl">
+      <div>
+        <span
+          class="inline-flex items-center justify-center p-2 bg-indigo-500 rounded-md shadow-lg"
+        >
+          <svg
+            class="h-6 w-6 text-white"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <!-- ... -->
+          </svg>
+        </span>
+      </div>
+    </div>
+    <p>{{ $t('greetings') }}</p>
+
+    <!-- Dark mode not enabled -->
+    <html>
+      <body>
+        <!-- Will be white -->
+        <div class="bg-white dark:bg-black">
+          <!-- ... -->
+        </div>
+      </body>
+    </html>
+
+    <!-- Dark mode enabled -->
+    <html class="dark">
+      <body>
+        <!-- Will be black -->
+        <div class="bg-white dark:bg-black">
+          <!-- ... -->
+        </div>
+      </body>
+    </html>
+  </main>
+</template>
+
+<script setup>
+  import { ref } from 'vue';
+  // import { usei18n } from 'vue-i18n';
+  // const { t } = usei18n();
+  // data = objects, arrays, strings, numbers, booleans, and null values.
+  const getSelectedItems = ref([]);
+  const getSelectedItemsFromLocalstorage = () => {
+    getSelectedItems.value = JSON.parse(localStorage.getItem('items')) || [];
+    getSelectedItems.value.reverse();
+    console.log('array from localstorage', getSelectedItems.value);
+  };
+
+  getSelectedItemsFromLocalstorage();
+
+  // onMounted(() => {
+  //   sortByProducts();
+  // });
+</script>

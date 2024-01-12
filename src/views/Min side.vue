@@ -20,23 +20,30 @@
           <td class="p-5">{{ perk.Title }}</td>
           <td>{{ perk.productDescription }}</td>
           <td><img :src="perk.productImage" alt="" style="object-fit: cover" /></td>
-          <td><button @click="deleteItem(perkIndex)">Delete</button></td>
+          <td>
+            <button class="btn" @click="openDeleteConfirmation(perkIndex)">Delete</button>
+            <dialog :open="deleteConfirmationModalVisible" class="modal">
+              <div class="modal-box">
+                <h3 class="font-bold text-lg">Hello!</h3>
+                <p class="py-4">Press ESC key or click the button below to close</p>
+                <div class="modal-action">
+                  <form method="dialog">
+                    <button class="btn" @click="confirmDelete">Delete</button>
+                    <button class="btn" @click="closeDeleteConfirmation">Cancel</button>
+                  </form>
+                </div>
+              </div>
+            </dialog>
+          </td>
         </tr>
-
-        <!-- Modal for delete confirmation -->
-    <div v-if="deleteConfirmationModalVisible">
-      <div class="modal-overlay" @click="closeDeleteConfirmation"></div>
-      <div class="modal">
-        <p>Are you sure you want to remove the product?</p>
-        <button @click="confirmDelete">Yes</button>
-        <button @click="closeDeleteConfirmation">No</button>
-      </div>
-    </div>
       </tbody>
     </table>
+    <div class="h-20 w-full bg-red-400 p-4" v-if="isShowing">
+      <button @click="deleteItem(perkIndex)">Delete</button>
+      <button class="btn" @click="closeModal">Cancel</button>
+    </div>
   </main>
 </template>
-
 
 <script setup>
   import { computed, ref, onMounted } from 'vue';
@@ -44,6 +51,8 @@
   const getSelectedItems = ref([]);
   const formattedDate = ref('');
   const searchInput = ref('');
+
+  const isShowing = ref(false);
 
   const sortByProducts = () => {
     getSelectedItems.value.sort((a, b) => {
@@ -115,5 +124,7 @@
     deleteConfirmationModalVisible.value = false;
     itemIndexToDelete = null;
   };
-
+  const closeModal = () => {
+    state.modalVisible.value = false;
+  };
 </script>
