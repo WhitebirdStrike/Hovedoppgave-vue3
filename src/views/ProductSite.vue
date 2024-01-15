@@ -80,45 +80,58 @@
 <script setup>
   import { onMounted, ref } from 'vue';
 
+  // Imported pictures for the array
   import HopePerk from '@/assets/pictures/IconPerks_hope.webp';
   import ResiliencePerk from '@/assets/pictures/IconPerks_resilience.webp';
   import AdrenalinePerk from '@/assets/pictures/IconPerks_adrenaline.webp';
   import SprintBurstPerk from '@/assets/pictures/IconPerks_sprintBurst.webp';
   import OffTheRecordPerk from '@/assets/pictures/IconPerks_offTheRecord.webp';
 
+  // Array for the perks
   const myProducts = ref([
     {
       Title: 'Hope',
       productDescription:
         'Hope is a perk that gives you 7% haste status effect when the exit gates are open. This perk is really good because of how much faster you get with it and the fact that some slower killers cant catch you if you use it',
       productImage: HopePerk,
+      shortDescription:
+        'Hope is a perk that gives you 7% haste status effect when the exit gates are open.',
     },
     {
       Title: 'Resilience',
       productDescription:
         'This perk gives you a 9% boost to everything exept haste if you are injured. This perk is just great by the fact that you will be injured at some point in the match',
       productImage: ResiliencePerk,
+      shortDescription:
+        'This perk gives you a 9% boost to everything exept haste if you are injured.',
     },
     {
       Title: 'Adrenaline',
       productDescription:
         'Adrenaline is a perk that gives you one healthstate and sprint for 150% for 5 seconds when the exit gates are powered. The reason for this being so powerfull is simply because it heals you and makes you get away if the killer is chasing you. If you are carried while the effect goes off it makes it so that it activates when you get unhooked which basicly grants you a free escape',
       productImage: AdrenalinePerk,
+      shortDescription:
+        'Adrenaline is a perk that gives you one healthstate and sprint for 150% for 5 seconds when the exit gates are powered.',
     },
     {
       Title: 'Sprint Burst',
       productDescription:
         'Sprint Burst is a perk that makes you run at 150% of your normal running speed when you start running and makes you exhausted for 40 sec. It is the best exhaustion perk in the whole game because it can be used everywhere and in so many situations.',
       productImage: SprintBurstPerk,
+      shortDescription:
+        'Sprint Burst is a perk that makes you run at 150% of your normal running speed when you start running and makes you exhausted for 40 sec.',
     },
     {
       Title: 'Off The Record',
       productDescription:
         'Off The Record is the best anti tunneling perk in the game. When you get unhooked or unhook yourself you get 80 seconds of no grunts of pain, killer not being able to see you with any kind of aurareading, and you have endurance. The endurance will be removed if you do a conspicious action though, which basicly boils down to actions that progress the game or improves your survival. One wierd trivia is that it does not get turned off by Any Means Nessesary, even though that would be a thing to improve your survival',
       productImage: OffTheRecordPerk,
+      shortDescription:
+        'Off The Record is the best anti tunneling perk in the game. When you get unhooked or unhook yourself you get 80 seconds of no grunts of pain, killer not being able to see you with any kind of aurareading, and you have endurance.',
     },
   ]);
 
+  // Code for opening and closing the modal
   const modalIsOpen = ref(false);
 
   const modalData = ref([]);
@@ -135,7 +148,6 @@
 
   // Toast for confirmation of bought product
   const ToastIsOpen = ref(false);
-  const toastData = ref([]);
 
   const openToast = (selectedItem) => {
     // Retrieve existing items from localStorage
@@ -157,20 +169,6 @@
     setTimeout(() => {
       ToastIsOpen.value = false;
     }, 5000);
-  };
-  const closeToast = () => {
-    toastData.value = [];
-    toastIsOpen.value = false;
-  };
-  const pushToBoughtProducts = (product) => {
-    // Hent alle eksisterende produkter fra localstorage eller ett tomt array om det ikke er noen.
-    const existingProducts = JSON.parse(localStorage.getItem('boughtProducts')) || [];
-
-    // Legg det nye produktet til arrayet
-    existingProducts.push(product);
-
-    // Lagre det oppdaterte produktet til Localstorage
-    localStorage.setItem('boughtProducts', JSON.stringify(existingProducts));
   };
 
   const sortByProducts = () => {

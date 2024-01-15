@@ -18,20 +18,48 @@
       <tbody>
         <tr v-for="(perk, perkIndex) in itemsFiltered" :key="perkIndex">
           <td class="p-5">{{ perk.Title }}</td>
-          <td>{{ perk.productDescription }}</td>
+          <td>{{ perk.shortDescription }}</td>
           <td><img :src="perk.productImage" alt="" style="object-fit: cover" /></td>
           <td>
-            <button class="btn" @click="openDeleteConfirmation(perkIndex)">Delete</button>
+            <button
+              class="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
+              @click="openDeleteConfirmation(perkIndex, perk)"
+            >
+              Delete
+            </button>
+            <button
+              class="btn inline-flex w-full justify-center rounded-md px-3 py-2 text-sm font-semibold text-white sm:ml-3 sm:w-auto mx-4"
+              @click="moreInfoModal(perk)"
+            >
+              More info
+            </button>
             <dialog :open="deleteConfirmationModalVisible" class="modal">
               <div class="modal-box">
-                <h3 class="font-bold text-lg">Hello!</h3>
+                <h3 class="font-bold text-lg">{{ morePerkInfo.Title }}</h3>
                 <p class="py-4">Press ESC key or click the button below to close</p>
                 <div class="modal-action">
                   <form method="dialog">
-                    <button class="btn" @click="confirmDelete">Delete</button>
-                    <button class="btn" @click="closeDeleteConfirmation">Cancel</button>
+                    <button
+                      class="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
+                      @click="confirmDelete"
+                    >
+                      Delete
+                    </button>
+                    <button
+                      class="btn inline-flex w-full justify-center rounded-md px-3 py-2 text-sm font-semibold text-white sm:ml-3 sm:w-auto"
+                      @click="closeDialog"
+                    >
+                      Cancel
+                    </button>
                   </form>
                 </div>
+              </div>
+            </dialog>
+            <dialog :open="moreInfoModalVisible" class="modal">
+              <div class="modal-box">
+                <h3 class="font-bold text-lg">{{ morePerkInfo.Title }}</h3>
+                <pre>{{ morePerkInfo.productDescription }}</pre>
+                <button @click="closeDialog()">Close</button>
               </div>
             </dialog>
           </td>
@@ -39,7 +67,7 @@
       </tbody>
     </table>
     <div class="h-20 w-full bg-red-400 p-4" v-if="isShowing">
-      <button @click="deleteItem(perkIndex)">Delete</button>
+      <button class="" @click="deleteItem(perkIndex)">Delete</button>
       <button class="btn" @click="closeModal">Cancel</button>
     </div>
   </main>
@@ -53,6 +81,11 @@
   const searchInput = ref('');
 
   const isShowing = ref(false);
+
+  // Getting the products bought through localstorage - The Data
+  const getSelectedItemsFromLocalstorage = () => {
+    getSelectedItems.value = JSON.parse(localStorage.getItem('items')) || [];
+  };
 
   const sortByProducts = () => {
     getSelectedItems.value.sort((a, b) => {
@@ -68,6 +101,7 @@
     });
   };
 
+  //Code for current date and time
   const updateFormattedDate = () => {
     const now = new Date();
 
@@ -86,15 +120,13 @@
     return number < 10 ? `0${number}` : `${number}`;
   };
 
+  // Code for alphabetically setting up the perks
   const itemsFiltered = computed(() => {
     const searchTerm = searchInput.value.toLowerCase();
     return getSelectedItems.value.filter((item) => item.Title.toLowerCase().includes(searchTerm));
   });
 
-  const getSelectedItemsFromLocalstorage = () => {
-    getSelectedItems.value = JSON.parse(localStorage.getItem('items')) || [];
-  };
-
+  // Code for deleting perks
   const deleteItem = (index) => {
     getSelectedItems.value.splice(index, 1);
     localStorage.setItem('items', JSON.stringify(getSelectedItems.value));
@@ -107,24 +139,39 @@
 
   const deleteConfirmationModalVisible = ref(false);
   let itemIndexToDelete = null;
+  const morePerkInfo = ref('');
 
-  const openDeleteConfirmation = (index) => {
+  // Code for opening the modal for deletion of perks or closing the modal
+  const openDeleteConfirmation = (index, moreInfo) => {
     itemIndexToDelete = index;
+    morePerkInfo.value = moreInfo;
     deleteConfirmationModalVisible.value = true;
   };
 
   const confirmDelete = () => {
     if (itemIndexToDelete !== null) {
       deleteItem(itemIndexToDelete);
-      closeDeleteConfirmation();
+      closeDialog();
     }
   };
 
-  const closeDeleteConfirmation = () => {
-    deleteConfirmationModalVisible.value = false;
-    itemIndexToDelete = null;
-  };
   const closeModal = () => {
     state.modalVisible.value = false;
+  };
+
+  const moreInfoModalVisible = ref(false);
+
+  const moreInfoModal = (moreInfo) => {
+    moreInfoModalVisible.value = true;
+    morePerkInfo.value = moreInfo;
+    console.log('dsff');
+  };
+
+  // Close the Dialog and Reset / Clean the data
+  const closeDialog = () => {
+    morePerkInfo.value = '';
+    itemIndexToDelete = null;
+    moreInfoModalVisible.value = false;
+    deleteConfirmationModalVisible.value = false;
   };
 </script>
