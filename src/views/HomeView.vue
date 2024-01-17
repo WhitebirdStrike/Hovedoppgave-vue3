@@ -1,28 +1,5 @@
 <template>
-  <!-- <main></main> -->
-  <main class="md:flex container mx-auto px-4">
-    <div class="h-10 w-full bg-red-400 lg:bg-yellow-400"></div>
-    <div class="h-10 w-full bg-blue-400"></div>
-    <div class="bg-white dark:bg-slate-800 rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl">
-      <div>
-        <span
-          class="inline-flex items-center justify-center p-2 bg-indigo-500 rounded-md shadow-lg"
-        >
-          <svg
-            class="h-6 w-6 text-white"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            aria-hidden="true"
-          >
-            <!-- ... -->
-          </svg>
-        </span>
-      </div>
-    </div>
-    <p>{{ $t('greetings') }}</p>
-
+  <main class="px-10">
     <!-- Dark mode not enabled -->
     <html>
       <body>
@@ -49,16 +26,45 @@
         :key="perkIndex"
         class="mb-4"
       >
-        <div class="bg-white dark:bg-black rounded-lg p-6 ring-1 ring-slate-900/5 shadow-xl">
+        <div class="bg-black dark:bg-black rounded-lg p-6 ring-1 ring-slate-900/5 shadow-xl">
           <h3 class="text-lg font-semibold">{{ perk.Title }}</h3>
           <p>{{ perk.productDescription }}</p>
           <img :src="perk.productImage" alt="" class="mt-4" style="max-width: 100%" />
+          <button @click="openBuyModal(perk)" class="btn mt-4 bg-indigo-500">Buy now!</button>
         </div>
       </div>
     </div>
     <div v-else>
       <p>{{ $t('noProductsMessage') }}</p>
     </div>
+
+    <!-- <div v-for="(perk, perkIndex) in myProducts.slice(-3).reverse()" :key="perkIndex" class="mb-4">
+      <div class="bg-white dark:bg-black rounded-lg p-6 ring-1 ring-slate-900/5 shadow-x1">
+        <button @click="openBuyModal" class="btn mt-4"></button>
+      </div>
+    </div> -->
+
+    <dialog :open="buyModalVisible" class="modal">
+      <div class="modal-box">
+        <h3 class="font-bold text-lg">Confirm Purchase</h3>
+        <div class="modal-action">
+          <form method="dialog">
+            <button
+              class="btn inline-flex w-full justify-center rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 sm:ml-3 sm:w-auto"
+              @click="confirmPurchase(perkData)"
+            >
+              Confirm
+            </button>
+            <button
+              class="btn inline-flex w-full justify-center rounded-md px-3 py-2 text-sm font-semibold text-white sm:ml-3 sm:w-auto"
+              @click="closeBuyModal"
+            >
+              Cancel
+            </button>
+          </form>
+        </div>
+      </div>
+    </dialog>
   </main>
 </template>
 
@@ -118,6 +124,36 @@
     console.log('array from localstorage', getSelectedItems.value);
   };
   getSelectedItemsFromLocalstorage();
+
+  const buyModalVisible = ref(false);
+
+  const perkData = ref({});
+
+  const openBuyModal = (perk) => {
+    buyModalVisible.value = true;
+    perkData.value = perk;
+  };
+
+  const confirmPurchase = (selectedItem) => {
+    // Retrieve existing items from localStorage
+    const existingItemsJSON = localStorage.getItem('items');
+
+    // Check if the array already exists in localStorage
+    const itemsArray = existingItemsJSON ? JSON.parse(existingItemsJSON) : [];
+    console.log('akjskd', selectedItem);
+
+    // Push the new selectedItem object into the array
+    itemsArray.push(selectedItem);
+
+    // Store the updated array back in localStorage
+    localStorage.setItem('items', JSON.stringify(itemsArray));
+
+    closeBuyModal();
+  };
+
+  const closeBuyModal = () => {
+    buyModalVisible.value = false;
+  };
 
   // onMounted(() => {
   //   sortByProducts();

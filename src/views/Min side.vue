@@ -123,7 +123,7 @@
   // Code for alphabetically setting up the perks
   const itemsFiltered = computed(() => {
     const searchTerm = searchInput.value.toLowerCase();
-    return getSelectedItems.value.filter((item) => item.Title.toLowerCase().includes(searchTerm));
+    return getSelectedItems.value.filter((item) => item.Title);
   });
 
   // Code for deleting perks
