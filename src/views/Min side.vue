@@ -58,7 +58,7 @@
             <dialog :open="moreInfoModalVisible" class="modal">
               <div class="modal-box">
                 <h3 class="font-bold text-lg">{{ morePerkInfo.Title }}</h3>
-                <pre>{{ morePerkInfo.productDescription }}</pre>
+                <p>{{ morePerkInfo.productDescription }}</p>
                 <button @click="closeDialog()">Close</button>
               </div>
             </dialog>
@@ -123,7 +123,43 @@
   // Code for alphabetically setting up the perks
   const itemsFiltered = computed(() => {
     const searchTerm = searchInput.value.toLowerCase();
-    return getSelectedItems.value.filter((item) => item.Title);
+    // console.log(searchTerm);
+    // return getSelectedItems.value.filter((item) => searchTerm);
+    const filteredProducts = getSelectedItems.value.filter(
+      (item) =>
+        item.Title.toLowerCase().includes(searchTerm) ||
+        item.productDescription.toLowerCase().includes(searchTerm)
+    );
+
+    /*
+      || =  Eller (tenk if else) = Kalt pipe
+      && = OG   
+      => = Return
+      !  = Ikke     
+      ? = ternary (if else)
+
+      Vis css dersom bruker er logget in
+      https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator
+      :class="isMember ? "hotpink" : ""
+
+      user is logged in && user is of role admin  = can see page
+
+      if(!userIsLoggedIn)
+
+      if(userIsAdmin == true) = Admin
+      if(userIsAdmin) =  Admin
+      if(!userIsAdmin) = Not admin
+
+    */
+
+    // Sorting the filtered products alphabetically
+    filteredProducts.sort((a, b) => {
+      const productNameA = a.Title.toUpperCase();
+      const productNameB = b.Title.toUpperCase();
+      return productNameA.localeCompare(productNameB);
+    });
+
+    return filteredProducts;
   });
 
   // Code for deleting perks

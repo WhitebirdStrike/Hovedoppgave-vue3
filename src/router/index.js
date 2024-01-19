@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue';
 import ProductView from '../views/Productsite.vue';
 import MinSideView from '../views/Min side.vue';
 import OmOssView from '../views/Om oss.vue';
+import Page404 from '../components/Global/Page404.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,6 +27,11 @@ const router = createRouter({
       path: '/omoss',
       name: 'omOss',
       component: OmOssView,
+    },
+    {
+      path: '/:pathName(.*)',
+      name: 'Page404',
+      component: Page404,
     },
   ],
 });

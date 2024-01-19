@@ -12,30 +12,32 @@
       <!-- This div is the content area that will take up the available space -->
     </div>
     <footer class="footer p-10 bg-neutral text-neutral-content">
-      <nav class="flex space-x-4">
+      <nav class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
         <div>
-          <header class="footer-title">Services</header>
-          <a class="link link-hover mr-4">Branding</a>
-          <a class="link link-hover mr-4">Design</a>
-          <a class="link link-hover mr-4">Marketing</a>
-          <a class="link link-hover mr-4">Advertisement</a>
+          <header class="footer-title mb-4 md:ml-32">Services</header>
+          <a class="link link-hover mb-2 mr-2 md:md:mr-4">|Branding</a>
+          <a class="link link-hover mb-2 mr-2 md:mr-4">|Design</a>
+          <a class="link link-hover mb-2 mr-2 md:mr-4">|Marketing</a>
+          <a class="link link-hover mb-2 mr-2 md:mr-4">|Advertisement|</a>
         </div>
         <div>
-          <header class="footer-title">Company</header>
-          <a class="link link-hover mr-4">About us</a>
-          <a class="link link-hover mr-4">Contact</a>
-          <a class="link link-hover mr-4">Jobs</a>
-          <a class="link link-hover mr-4">Press kit</a>
+          <header class="footer-title mb-4 md:ml-28">Company</header>
+          <a class="link link-hover mb-2 mr-2 md:mr-4">|About us</a>
+          <a class="link link-hover mb-2 mr-2 md:mr-4">|Contact</a>
+          <a class="link link-hover mb-2 mr-2 md:mr-4">|Jobs</a>
+          <a class="link link-hover mb-2 mr-2 md:mr-4">|Press kit|</a>
         </div>
         <div>
-          <header class="footer-title">Legal</header>
-          <a class="link link-hover mr-4">Terms of use</a>
-          <a class="link link-hover mr-4">Privacy policy</a>
-          <a class="link link-hover mr-4">Cookie policy</a>
+          <header class="footer-title mb-4 md:ml-32">Legal</header>
+          <a class="link link-hover mb-2 mr-2 md:mr-4">|Terms of use</a>
+          <a class="link link-hover mb-2 mr-2 md:mr-4">|Privacy policy</a>
+          <a class="link link-hover mb-2 mr-2 md:mr-4">|Cookie policy|</a>
         </div>
       </nav>
     </footer>
   </body>
-  # Footer with a logo section ACME Industries Ltd. Providing reliable tech since 1992 SERVICES
-  Branding Design Marketing Advertisement C
+  <p class="pl-4">
+    # Footer with a logo section ACME Industries Ltd. Providing reliable tech since 1992 SERVICES
+    Branding Design Marketing Advertisement C
+  </p>
 </template>

@@ -369,3 +369,68 @@ const closeDeleteConfirmation = () => {
   //   sortByProducts();
   // });
 </script>
+
+const closeToast = () => {
+  toastData.value = [];
+  toastIsOpen.value = false;
+};
+
+const pushToBoughtProducts = (product) => {
+  // Hent alle eksisterende produkter fra localstorage eller ett tomt array om det ikke er noen.
+  const existingProducts = JSON.parse(localStorage.getItem('boughtProducts')) || [];
+
+  // Legg det nye produktet til arrayet
+  existingProducts.push(product);
+
+  // Lagre det oppdaterte produktet til Localstorage
+  localStorage.setItem('boughtProducts', JSON.stringify(existingProducts));
+};
+const toastData = ref([]);
+<div class="h-10 w-full bg-red-400 lg:bg-yellow-400"></div>
+<div class="h-10 w-full bg-blue-400"></div>
+<div class="bg-white dark:bg-slate-800 rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl">
+  <div>
+    <span
+      class="inline-flex items-center justify-center p-2 bg-indigo-500 rounded-md shadow-lg"
+    >
+      <svg
+        class="h-6 w-6 text-white"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        aria-hidden="true"
+      >
+        <!-- ... -->
+      </svg>
+    </span>
+  </div>
+</div>
+<p>{{ $t('greetings') }}</p>
+<div class="relative ml-3">
+            <div>
+              <button
+                type="button"
+                class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                id="user-menu-button"
+                aria-expanded="false"
+                aria-haspopup="true"
+              >
+                <span class="absolute -inset-1.5"></span>
+                <span class="sr-only">Open user menu</span>
+                <img class="h-8 w-8 rounded-full" alt="" />
+              </button>
+            </div>
+            <div class="md:mt-10">Hallo dette er en side</div>
+
+            <button
+              class="transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 ..."
+            >
+              Save Changes
+            </button>
+            <span class="relative flex h-3 w-3">
+              <span
+                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"
+              ></span>
+              <span class="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
+            </span>
