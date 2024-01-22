@@ -1,8 +1,6 @@
 <template>
   <p class="mt-10 pl-4 pb-8 md:mt-0 lg:mt-5">
-    This website is made for displaying good survivor perks, and "selling them". They will have
-    information about what they do. This website was made so that people could see perks that is
-    worth getting.
+    {{ $t('aboutPage.aboutText') }}
   </p>
   <div class="fixed top-5 right-5 max-w-xs pt-20 hidden md:block mt-10">
     <div role="alert" class="alert alert-info">
@@ -19,7 +17,7 @@
           d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
         ></path>
       </svg>
-      <span>Did you know that many of the perks displayed of this website is basekit?</span>
+      <span>{{ $t('aboutPage.aboutInfo') }}</span>
     </div>
   </div>
 </template>

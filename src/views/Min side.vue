@@ -10,46 +10,58 @@
     <table class="table-fixed">
       <thead>
         <tr>
-          <th>Title</th>
-          <th>Description</th>
-          <th>Image</th>
+          <th>{{ $t('mySitePage.mySiteThread') }}</th>
+          <th>{{ $t('mySitePage.mySiteThread1') }}</th>
+          <th>{{ $t('mySitePage.mySiteThread') }}</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="(perk, perkIndex) in itemsFiltered" :key="perkIndex">
           <td class="p-5">{{ perk.Title }}</td>
           <td>{{ perk.shortDescription }}</td>
-          <td><img :src="perk.productImage" alt="" style="object-fit: cover" /></td>
+          <td>
+            <div @click="openImageModal(perk.productImage)">
+              <img :src="perk.productImage" alt="" style="max-width: 100%" />
+            </div>
+          </td>
+
+          <dialog :open="imageModalVisible" class="modal">
+            <div class="modal-box">
+              <img :src="perk.productImage" alt="" contain class="h-64 mx-32" />
+              <button class="btn" @click="closeImageModal">Close</button>
+            </div>
+          </dialog>
+
           <td>
             <button
               class="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
               @click="openDeleteConfirmation(perkIndex, perk)"
             >
-              Delete
+              {{ $t('mySitePage.mySiteButtons') }}
             </button>
             <button
               class="btn inline-flex w-full justify-center rounded-md px-3 py-2 text-sm font-semibold text-white sm:ml-3 sm:w-auto mx-4"
               @click="moreInfoModal(perk)"
             >
-              More info
+              {{ $t('mySitePage.mySiteButtons1') }}
             </button>
             <dialog :open="deleteConfirmationModalVisible" class="modal">
               <div class="modal-box">
                 <h3 class="font-bold text-lg">{{ morePerkInfo.Title }}</h3>
-                <p class="py-4">Press ESC key or click the button below to close</p>
+                <p class="py-4">{{ $t('mySitePage.mySiteModalButtons') }}</p>
                 <div class="modal-action">
                   <form method="dialog">
                     <button
                       class="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
                       @click="confirmDelete"
                     >
-                      Delete
+                      {{ $t('mySitePage.mySiteModalButtons1') }}
                     </button>
                     <button
                       class="btn inline-flex w-full justify-center rounded-md px-3 py-2 text-sm font-semibold text-white sm:ml-3 sm:w-auto"
                       @click="closeDialog"
                     >
-                      Cancel
+                      {{ $t('mySitePage.mySiteModalButtons2') }}
                     </button>
                   </form>
                 </div>
@@ -59,7 +71,12 @@
               <div class="modal-box">
                 <h3 class="font-bold text-lg">{{ morePerkInfo.Title }}</h3>
                 <p>{{ morePerkInfo.productDescription }}</p>
-                <button @click="closeDialog()">Close</button>
+                <button
+                  @click="closeDialog()"
+                  class="btn inline-flex w-full justify-center rounded-md px-3 py-2 text-sm font-semibold text-white sm:ml-3 sm:w-auto mx-4"
+                >
+                  {{ $t('mySitePage.mySiteModalButtons3') }}
+                </button>
               </div>
             </dialog>
           </td>
@@ -131,27 +148,6 @@
         item.productDescription.toLowerCase().includes(searchTerm)
     );
 
-    /*
-      || =  Eller (tenk if else) = Kalt pipe
-      && = OG   
-      => = Return
-      !  = Ikke     
-      ? = ternary (if else)
-
-      Vis css dersom bruker er logget in
-      https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator
-      :class="isMember ? "hotpink" : ""
-
-      user is logged in && user is of role admin  = can see page
-
-      if(!userIsLoggedIn)
-
-      if(userIsAdmin == true) = Admin
-      if(userIsAdmin) =  Admin
-      if(!userIsAdmin) = Not admin
-
-    */
-
     // Sorting the filtered products alphabetically
     filteredProducts.sort((a, b) => {
       const productNameA = a.Title.toUpperCase();
@@ -209,5 +205,19 @@
     itemIndexToDelete = null;
     moreInfoModalVisible.value = false;
     deleteConfirmationModalVisible.value = false;
+  };
+
+  const imageModalVisible = ref(false);
+  const largeImage = ref('');
+
+  const openImageModal = (imageSrc) => {
+    largeImage.value = imageSrc;
+    imageModalVisible.value = true;
+    console.log(imageSrc);
+  };
+
+  const closeImageModal = () => {
+    largeImage.value = '';
+    imageModalVisible.value = false;
   };
 </script>

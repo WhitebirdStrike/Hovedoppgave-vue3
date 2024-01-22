@@ -1,8 +1,40 @@
 {
   "greetings": "Hello boiz",
   "navbar": {
+    "pageDashboard": "Dashboard",
     "productpage": "Productpage",
     "pagetitle": "My Site",
     "pageus": "About us"
+  },
+  "aboutPage": {
+    "aboutText": "This website is made for displaying good survivor perks, and 'selling them'. They will have information about what they do. This website was made so that people could see perks that is worth getting.",
+    "aboutInfo": "Did you know that many of the perks displayed of this website is basekit?"
+  },
+  "mySitePage": {
+    "mySiteThread": "Title",
+    "mySiteThread1": "Description",
+    "mySiteThread2": "Image",
+    "mySiteButtons": "Delete",
+    "mySiteButtons1": "More info",
+    "mySiteModalButtons": "Press ESC key or click the button below to close",
+    "mySiteModalButtons1": "Delete",
+    "mySiteModalButtons2": "Cancel",
+    "mySiteModalButtons3": "Close"
+  },
+
+  "myProductSite": {
+    "myProductSiteButton": " Close",
+    "myProductSiteButton1": "Buy",
+    "myProductSiteToastButton": "Product bought"
+  },
+  "myDashboardSite": {
+    "myDashboardSiteHeadline": "Welcome to the website. Here you can find perks to buy",
+    "myDashboardSiteButton": "Buy now!"
+  },
+  "myFooter": {
+    "myFooterHeadliners": "Services",
+    "myFooterHeadliners1": "Company",
+    "myFooterHeadliners2": "Legal",
+    "myFooterA": "Branding"
   }
 }

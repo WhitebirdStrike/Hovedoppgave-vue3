@@ -1,8 +1,11 @@
 {
-  "greetings": "Hallo der",
+  "greetings": "Hei gutter",
   "navbar": {
     "productpage": "Produktside",
     "pagetitle": "Min side",
     "pageus": "Om oss"
+  },
+  "aboutPage": {
+    "aboutTitle": "Not Bob"
   }
 }

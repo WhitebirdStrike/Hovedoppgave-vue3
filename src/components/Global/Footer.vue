@@ -14,21 +14,27 @@
     <footer class="footer p-10 bg-neutral text-neutral-content">
       <nav class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
         <div>
-          <header class="footer-title mb-4 md:ml-32">Services</header>
-          <a class="link link-hover mb-2 mr-2 md:md:mr-4">|Branding</a>
+          <header class="footer-title mb-4 md:ml-32">
+            {{ $t('myFooter.myFooterHeadliners') }}
+          </header>
+          <a class="link link-hover mb-2 mr-2 md:md:mr-4">{{ $t('myFooter.myFooterA') }}</a>
           <a class="link link-hover mb-2 mr-2 md:mr-4">|Design</a>
           <a class="link link-hover mb-2 mr-2 md:mr-4">|Marketing</a>
           <a class="link link-hover mb-2 mr-2 md:mr-4">|Advertisement|</a>
         </div>
         <div>
-          <header class="footer-title mb-4 md:ml-28">Company</header>
+          <header class="footer-title mb-4 md:ml-28">
+            {{ $t('myFooter.myFooterHeadliners1') }}
+          </header>
           <a class="link link-hover mb-2 mr-2 md:mr-4">|About us</a>
           <a class="link link-hover mb-2 mr-2 md:mr-4">|Contact</a>
           <a class="link link-hover mb-2 mr-2 md:mr-4">|Jobs</a>
           <a class="link link-hover mb-2 mr-2 md:mr-4">|Press kit|</a>
         </div>
         <div>
-          <header class="footer-title mb-4 md:ml-32">Legal</header>
+          <header class="footer-title mb-4 md:ml-32">
+            {{ $t('myFooter.myFooterHeadliners2') }}
+          </header>
           <a class="link link-hover mb-2 mr-2 md:mr-4">|Terms of use</a>
           <a class="link link-hover mb-2 mr-2 md:mr-4">|Privacy policy</a>
           <a class="link link-hover mb-2 mr-2 md:mr-4">|Cookie policy|</a>
@@ -41,3 +47,5 @@
     Branding Design Marketing Advertisement C
   </p>
 </template>
+
+<script setup></script>

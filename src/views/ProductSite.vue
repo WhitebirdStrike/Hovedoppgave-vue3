@@ -44,20 +44,20 @@
         type="button"
         class="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
       >
-        Close
+        {{ $t('myProductSite.myProductSiteButton') }}
       </button>
       <button
         @click="openToast(modalData)"
         type="button"
         class="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
       >
-        Buy
+        {{ $t('myProductSite.myProductSiteButton1') }}
       </button>
     </div>
     <!-- ToastIsOpen -->
     <div v-if="ToastIsOpen" class="toast toast-end">
       <div class="alert alert-success">
-        <span>Product bought</span>
+        <span>{{ $t('myProductSite.myProductSiteToastButton') }}</span>
       </div>
     </div>
   </main>

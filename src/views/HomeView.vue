@@ -20,7 +20,7 @@
       </body>
     </html>
     <div v-if="myProducts.length > 0" class="mt-8">
-      <h2 class="text-xl font-bold mb-4">Welcome to the website. Here you can find perks to buy</h2>
+      <h2 class="text-xl font-bold mb-4">{{ $t('myDashboardSite.myDashboardSiteHeadline') }}</h2>
       <div
         v-for="(perk, perkIndex) in myProducts.slice(-3).reverse()"
         :key="perkIndex"
@@ -30,7 +30,9 @@
           <h3 class="text-lg font-semibold">{{ perk.Title }}</h3>
           <p>{{ perk.productDescription }}</p>
           <img :src="perk.productImage" alt="" class="mt-4" style="max-width: 100%" />
-          <button @click="openBuyModal(perk)" class="btn mt-4 bg-indigo-500">Buy now!</button>
+          <button @click="openBuyModal(perk)" class="btn mt-4 bg-indigo-500">
+            {{ $t('myDashboardSite.myDashboardSiteButton') }}
+          </button>
         </div>
       </div>
     </div>
