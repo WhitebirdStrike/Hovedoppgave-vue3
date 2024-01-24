@@ -18,26 +18,26 @@
             {{ $t('myFooter.myFooterHeadliners') }}
           </header>
           <a class="link link-hover mb-2 mr-2 md:md:mr-4">{{ $t('myFooter.myFooterA') }}</a>
-          <a class="link link-hover mb-2 mr-2 md:mr-4">|Design</a>
-          <a class="link link-hover mb-2 mr-2 md:mr-4">|Marketing</a>
-          <a class="link link-hover mb-2 mr-2 md:mr-4">|Advertisement|</a>
+          <a class="link link-hover mb-2 mr-2 md:mr-4">{{ $t('myFooter.myFooterA1') }}</a>
+          <a class="link link-hover mb-2 mr-2 md:mr-4">{{ $t('myFooter.myFooterA2') }}</a>
+          <a class="link link-hover mb-2 mr-2 md:mr-4">{{ $t('myFooter.myFooterA3') }}</a>
         </div>
         <div>
           <header class="footer-title mb-4 md:ml-28">
             {{ $t('myFooter.myFooterHeadliners1') }}
           </header>
-          <a class="link link-hover mb-2 mr-2 md:mr-4">|About us</a>
-          <a class="link link-hover mb-2 mr-2 md:mr-4">|Contact</a>
-          <a class="link link-hover mb-2 mr-2 md:mr-4">|Jobs</a>
-          <a class="link link-hover mb-2 mr-2 md:mr-4">|Press kit|</a>
+          <a class="link link-hover mb-2 mr-2 md:mr-4">{{ $t('myFooter.myFooterA4') }}</a>
+          <a class="link link-hover mb-2 mr-2 md:mr-4">{{ $t('myFooter.myFooterA5') }}</a>
+          <a class="link link-hover mb-2 mr-2 md:mr-4">{{ $t('myFooter.myFooterA6') }}</a>
+          <a class="link link-hover mb-2 mr-2 md:mr-4">{{ $t('myFooter.myFooterA7') }}</a>
         </div>
         <div>
           <header class="footer-title mb-4 md:ml-32">
             {{ $t('myFooter.myFooterHeadliners2') }}
           </header>
-          <a class="link link-hover mb-2 mr-2 md:mr-4">|Terms of use</a>
-          <a class="link link-hover mb-2 mr-2 md:mr-4">|Privacy policy</a>
-          <a class="link link-hover mb-2 mr-2 md:mr-4">|Cookie policy|</a>
+          <a class="link link-hover mb-2 mr-2 md:mr-4">{{ $t('myFooter.myFooterA8') }}</a>
+          <a class="link link-hover mb-2 mr-2 md:mr-4">{{ $t('myFooter.myFooterA9') }}</a>
+          <a class="link link-hover mb-2 mr-2 md:mr-4">{{ $t('myFooter.myFooterA10') }}</a>
         </div>
       </nav>
     </footer>

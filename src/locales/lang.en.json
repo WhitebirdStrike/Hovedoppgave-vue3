@@ -6,6 +6,33 @@
     "pagetitle": "My Site",
     "pageus": "About us"
   },
+  "perks": {
+    "hope": {
+      "perkname": "Hope",
+      "perkDescription": "Hope is a perk that gives you 7% haste status effect when the exit gates are open. This perk is really good because of how much faster you get with it and the fact that some slower killers cant catch you if you use it",
+      "perkShortDescription": "Hope is a perk that gives you 7% haste status effect when the exit gates are open."
+    },
+    "Resilience": {
+      "perkname": "Resilience",
+      "perkDescription": "This perk gives you a 9% boost to everything exept haste if you are injured. This perk is just great by the fact that you will be injured at some point in the match",
+      "perkShortDescription": "This perk gives you a 9% boost to everything exept haste if you are injured"
+    },
+    "Adrenaline": {
+      "perkname": "Adrenaline",
+      "perkDescription": "Adrenaline is a perk that gives you one healthstate and sprint for 150% for 5 seconds when the exit gates are powered. The reason for this being so powerfull is simply because it heals you and makes you get away if the killer is chasing you. If you are carried while the effect goes off it makes it so that it activates when you get unhooked which basicly grants you a free escape",
+      "perkShortDescription": "Adrenaline is a perk that gives you one healthstate and sprint for 150% for 5 seconds when the exit gates are powered"
+    },
+    "Sprint Burst": {
+      "perkname": "Sprint Burst",
+      "perkDescription": "Sprint Burst is a perk that makes you run at 150% of your normal running speed when you start running and makes you exhausted for 40 sec. It is the best exhaustion perk in the whole game because it can be used everywhere and in so many situations.",
+      "perkShortDescription": "Sprint Burst is a perk that makes you run at 150% of your normal running speed when you start running and makes you exhausted for 40 sec."
+    },
+    "Off The Record": {
+      "perkname": "Off The Record",
+      "perkDescription": "Sprint Burst is a perk that makes you run at 150% of your normal running speed when you start running and makes you exhausted for 40 sec. It is the best exhaustion perk in the whole game because it can be used everywhere and in so many situations.",
+      "perkShortDescription": "Sprint Burst is a perk that makes you run at 150% of your normal running speed when you start running and makes you exhausted for 40 sec."
+    }
+  },
   "aboutPage": {
     "aboutText": "This website is made for displaying good survivor perks, and 'selling them'. They will have information about what they do. This website was made so that people could see perks that is worth getting.",
     "aboutInfo": "Did you know that many of the perks displayed of this website is basekit?"
@@ -35,6 +62,16 @@
     "myFooterHeadliners": "Services",
     "myFooterHeadliners1": "Company",
     "myFooterHeadliners2": "Legal",
-    "myFooterA": "Branding"
+    "myFooterA": "|Branding",
+    "myFooterA1": "|Design",
+    "myFooterA2": "|Marketing",
+    "myFooterA3": "|Advertisement|",
+    "myFooterA4": "|About us",
+    "myFooterA5": "|Contact",
+    "myFooterA6": "|Jobs",
+    "myFooterA7": "|Press kit|",
+    "myFooterA8": "|Terms of use",
+    "myFooterA9": "|Privacy policy",
+    "myFooterA10": "|Cookie policy|"
   }
 }

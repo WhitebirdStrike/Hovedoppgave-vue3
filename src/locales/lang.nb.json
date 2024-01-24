@@ -1,11 +1,76 @@
 {
   "greetings": "Hei gutter",
   "navbar": {
+    "pageDashboard": "Dashbord",
     "productpage": "Produktside",
-    "pagetitle": "Min side",
+    "pagetitle": "Min nettside",
     "pageus": "Om oss"
   },
+  "perks": {
+    "hope": {
+      "perkname": "Håp",
+      "perkDescription": "Håp er en fordel som gir deg 7% økning i hurtighet når utgangsportene er åpne. Denne fordelen er virkelig god på grunn av hvor mye raskere du blir med den, og det faktum at noen tregere drapsmenn ikke kan ta deg igjen hvis du bruker den.",
+      "perkShortDescription": "Håp er en fordel som gir deg 7% økning i hurtighet når utgangsportene er åpne."
+    },
+    "Resilience": {
+      "perkname": "Motstandskraft",
+      "perkDescription": "Denne fordelen gir deg en 9% økning i alt unntatt hurtighet hvis du er skadet. Denne fordelen er flott fordi du vil være skadet på et eller annet tidspunkt i kampen.",
+      "perkShortDescription": "Denne fordelen gir deg en 9% økning i alt unntatt hurtighet hvis du er skadet."
+    },
+    "Adrenaline": {
+      "perkname": "Adrenalin",
+      "perkDescription": "Adrenalin er en fordel som gir deg én helsestatus og sprint med 150% hastighet i 5 sekunder når utgangsportene er aktivert. Grunnen til at dette er så kraftig er rett og slett fordi det helbreder deg og får deg unna hvis drapsmannen jager deg. Hvis du blir båret mens effekten er aktiv, aktiveres den når du blir hektet av, noe som gir deg en gratis flukt.",
+      "perkShortDescription": "Adrenalin er en fordel som gir deg én helsestatus og sprint med 150% hastighet i 5 sekunder når utgangsportene er aktivert."
+    },
+    "Sprint Burst": {
+      "perkname": "Sprint Burst",
+      "perkDescription": "Sprint Burst er en fordel som gjør at du løper med 150% av normal løpehastighet når du begynner å løpe, og gjør deg utmattet i 40 sekunder. Det er den beste utmattelsesfordelen i hele spillet fordi den kan brukes overalt og i så mange situasjoner.",
+      "perkShortDescription": "Sprint Burst er en fordel som gjør at du løper med 150% av normal løpehastighet når du begynner å løpe, og gjør deg utmattet i 40 sekunder."
+    },
+    "Off The Record": {
+      "perkname": "Off The Record",
+      "perkDescription": "Sprint Burst er en fordel som gjør at du løper med 150% av normal løpehastighet når du begynner å løpe, og gjør deg utmattet i 40 sekunder. Det er den beste utmattelsesfordelen i hele spillet fordi den kan brukes overalt og i så mange situasjoner.",
+      "perkShortDescription": "Sprint Burst er en fordel som gjør at du løper med 150% av normal løpehastighet når du begynner å løpe, og gjør deg utmattet i 40 sekunder."
+    }
+  },
   "aboutPage": {
-    "aboutTitle": "Not Bob"
+    "aboutText": "Denne nettsiden er laget for å vise gode fordeler for overlevende og 'selge dem'. De vil ha informasjon om hva de gjør. Denne nettsiden ble laget slik at folk kunne se fordeler som er verdt å få.",
+    "aboutInfo": "Visste du at mange av fordelene som vises på denne nettsiden er basissett?"
+  },
+  "mySitePage": {
+    "mySiteThread": "Tittel",
+    "mySiteThread1": "Beskrivelse",
+    "mySiteThread2": "Bilde",
+    "mySiteButtons": "Slett",
+    "mySiteButtons1": "Mer informasjon",
+    "mySiteModalButtons": "Trykk på ESC-tasten eller klikk på knappen nedenfor for å lukke",
+    "mySiteModalButtons1": "Slett",
+    "mySiteModalButtons2": "Avbryt",
+    "mySiteModalButtons3": "Lukk"
+  },
+  "myProductSite": {
+    "myProductSiteButton": " Lukk",
+    "myProductSiteButton1": "Kjøp",
+    "myProductSiteToastButton": "Produkt kjøpt"
+  },
+  "myDashboardSite": {
+    "myDashboardSiteHeadline": "Velkommen til nettsiden. Her kan du finne fordeler å kjøpe",
+    "myDashboardSiteButton": "Kjøp nå!"
+  },
+  "myFooter": {
+    "myFooterHeadliners": "Tjenester",
+    "myFooterHeadliners1": "Selskap",
+    "myFooterHeadliners2": "Juridisk",
+    "myFooterA": "|Merkevare",
+    "myFooterA1": "|Design",
+    "myFooterA2": "|Markedsføring",
+    "myFooterA3": "|Annonse|",
+    "myFooterA4": "|Om oss",
+    "myFooterA5": "|Kontakt",
+    "myFooterA6": "|Jobber",
+    "myFooterA7": "|Pressemappe|",
+    "myFooterA8": "|Bruksvilkår",
+    "myFooterA9": "|Personvernregler",
+    "myFooterA10": "|Informasjonskapselpolicy|"
   }
 }
