@@ -434,3 +434,5 @@ const toastData = ref([]);
               ></span>
               <span class="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
             </span>
+            btn btn-ghost rounded-btn
+            menu dropdown-content p-2 shadow bg base-100 rounded-box w-52 mt-4 z-20

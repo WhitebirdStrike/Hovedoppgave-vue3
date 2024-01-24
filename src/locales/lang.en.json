@@ -29,8 +29,8 @@
     },
     "Off The Record": {
       "perkname": "Off The Record",
-      "perkDescription": "Sprint Burst is a perk that makes you run at 150% of your normal running speed when you start running and makes you exhausted for 40 sec. It is the best exhaustion perk in the whole game because it can be used everywhere and in so many situations.",
-      "perkShortDescription": "Sprint Burst is a perk that makes you run at 150% of your normal running speed when you start running and makes you exhausted for 40 sec."
+      "perkDescription": "Off The Record is the best anti tunneling perk in the game. When you get unhooked or unhook yourself you get 80 seconds of no grunts of pain, killer not being able to see you with any kind of aurareading, and you have endurance. The endurance will be removed if you do a conspicious action though, which basicly boils down to actions that progress the game or improves your survival. One wierd trivia is that it does not get turned off by Any Means Nessesary, even though that would be a thing to improve your survival",
+      "perkShortDescription": "Off The Record is the best anti tunneling perk in the game. When you get unhooked or unhook yourself you get 80 seconds of no grunts of pain, killer not being able to see you with any kind of aurareading, and you have endurance."
     }
   },
   "aboutPage": {
@@ -38,6 +38,7 @@
     "aboutInfo": "Did you know that many of the perks displayed of this website is basekit?"
   },
   "mySitePage": {
+    "mySiteAlphabetically": "Sort alphabetically",
     "mySiteThread": "Title",
     "mySiteThread1": "Description",
     "mySiteThread2": "Image",
@@ -46,7 +47,8 @@
     "mySiteModalButtons": "Press ESC key or click the button below to close",
     "mySiteModalButtons1": "Delete",
     "mySiteModalButtons2": "Cancel",
-    "mySiteModalButtons3": "Close"
+    "mySiteModalButtons3": "Close",
+    "mySiteSearchBar": "Search"
   },
 
   "myProductSite": {
@@ -62,16 +64,19 @@
     "myFooterHeadliners": "Services",
     "myFooterHeadliners1": "Company",
     "myFooterHeadliners2": "Legal",
-    "myFooterA": "|Branding",
-    "myFooterA1": "|Design",
-    "myFooterA2": "|Marketing",
-    "myFooterA3": "|Advertisement|",
-    "myFooterA4": "|About us",
-    "myFooterA5": "|Contact",
-    "myFooterA6": "|Jobs",
-    "myFooterA7": "|Press kit|",
-    "myFooterA8": "|Terms of use",
-    "myFooterA9": "|Privacy policy",
-    "myFooterA10": "|Cookie policy|"
+    "myFooterA": "Branding",
+    "myFooterA1": "Design",
+    "myFooterA2": "Marketing",
+    "myFooterA3": "Advertisement",
+    "myFooterA4": "About us",
+    "myFooterA5": "Contact",
+    "myFooterA6": "Jobs",
+    "myFooterA7": "Press kit",
+    "myFooterA8": "Terms of use",
+    "myFooterA9": "Privacy policy",
+    "myFooterA10": "Cookie policy"
+  },
+  "language": {
+    "Change Language": "Change language"
   }
 }

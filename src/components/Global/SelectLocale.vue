@@ -1,6 +1,10 @@
 <template>
   <div class="dropdown dropdown-end">
-    <label tabindex="0" class="btn btn-ghost rounded-btn">Change Language</label>
+    <label
+      tabindex="0"
+      class="btn inline-flex w-full justify-center rounded-md px-3 py-2 text-sm font-semibold text-white sm:ml-3 sm:w-auto mx-4"
+      >{{ $t('language.Change Language') }}</label
+    >
     <ul
       tabindex="0"
       class="menu dropdown-content p-2 shadow bg base-100 rounded-box w-52 mt-4 z-20"

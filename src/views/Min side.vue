@@ -2,11 +2,11 @@
   <!-- <p id="date"></p> -->
   <p>{{ searchInput }}</p>
   <div class="grid-cols-1 flex justify-end items-center pt-6 pr-6">
-    <input v-model="searchInput" placeholder="Search" />
+    <input v-model="searchInput" :placeholder="$t('mySitePage.mySiteSearchBar')" />
   </div>
   <main class="mt-10 container mx-auto px-4">
     <p>{{ formattedDate }}</p>
-    <button @click="sortByProducts()">Sort alphabetically</button>
+    <button @click="sortByProducts()">{{ $t('mySitePage.mySiteAlphabetically') }}</button>
     <table class="table-fixed">
       <thead>
         <tr>
@@ -20,7 +20,7 @@
           <td class="p-5">{{ perk.Title }}</td>
           <td>{{ perk.shortDescription }}</td>
           <td>
-            <div @click="openImageModal(perk.productImage)">
+            <div @click="openImageModal(perk)">
               <img :src="perk.productImage" alt="" style="max-width: 100%" />
             </div>
           </td>
@@ -209,11 +209,10 @@
 
   const imageModalVisible = ref(false);
   const largeImage = ref('');
-
-  const openImageModal = (imageSrc) => {
-    largeImage.value = imageSrc;
+  const openImageModal = (perk) => {
+    largeImage.value = perk.productImage;
     imageModalVisible.value = true;
-    console.log(imageSrc);
+    console.log(perk);
   };
 
   const closeImageModal = () => {

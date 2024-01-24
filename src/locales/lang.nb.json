@@ -8,17 +8,17 @@
   },
   "perks": {
     "hope": {
-      "perkname": "Håp",
+      "perkname": "Hope",
       "perkDescription": "Håp er en fordel som gir deg 7% økning i hurtighet når utgangsportene er åpne. Denne fordelen er virkelig god på grunn av hvor mye raskere du blir med den, og det faktum at noen tregere drapsmenn ikke kan ta deg igjen hvis du bruker den.",
       "perkShortDescription": "Håp er en fordel som gir deg 7% økning i hurtighet når utgangsportene er åpne."
     },
     "Resilience": {
-      "perkname": "Motstandskraft",
+      "perkname": "Resilience",
       "perkDescription": "Denne fordelen gir deg en 9% økning i alt unntatt hurtighet hvis du er skadet. Denne fordelen er flott fordi du vil være skadet på et eller annet tidspunkt i kampen.",
       "perkShortDescription": "Denne fordelen gir deg en 9% økning i alt unntatt hurtighet hvis du er skadet."
     },
     "Adrenaline": {
-      "perkname": "Adrenalin",
+      "perkname": "Adrenaline",
       "perkDescription": "Adrenalin er en fordel som gir deg én helsestatus og sprint med 150% hastighet i 5 sekunder når utgangsportene er aktivert. Grunnen til at dette er så kraftig er rett og slett fordi det helbreder deg og får deg unna hvis drapsmannen jager deg. Hvis du blir båret mens effekten er aktiv, aktiveres den når du blir hektet av, noe som gir deg en gratis flukt.",
       "perkShortDescription": "Adrenalin er en fordel som gir deg én helsestatus og sprint med 150% hastighet i 5 sekunder når utgangsportene er aktivert."
     },
@@ -38,6 +38,7 @@
     "aboutInfo": "Visste du at mange av fordelene som vises på denne nettsiden er basissett?"
   },
   "mySitePage": {
+    "mySiteAlphabetically": "Sorter alfabetisk",
     "mySiteThread": "Tittel",
     "mySiteThread1": "Beskrivelse",
     "mySiteThread2": "Bilde",
@@ -46,7 +47,8 @@
     "mySiteModalButtons": "Trykk på ESC-tasten eller klikk på knappen nedenfor for å lukke",
     "mySiteModalButtons1": "Slett",
     "mySiteModalButtons2": "Avbryt",
-    "mySiteModalButtons3": "Lukk"
+    "mySiteModalButtons3": "Lukk",
+    "mySiteSearchBar": "Søk"
   },
   "myProductSite": {
     "myProductSiteButton": " Lukk",
@@ -61,16 +63,19 @@
     "myFooterHeadliners": "Tjenester",
     "myFooterHeadliners1": "Selskap",
     "myFooterHeadliners2": "Juridisk",
-    "myFooterA": "|Merkevare",
-    "myFooterA1": "|Design",
-    "myFooterA2": "|Markedsføring",
-    "myFooterA3": "|Annonse|",
-    "myFooterA4": "|Om oss",
-    "myFooterA5": "|Kontakt",
-    "myFooterA6": "|Jobber",
-    "myFooterA7": "|Pressemappe|",
-    "myFooterA8": "|Bruksvilkår",
-    "myFooterA9": "|Personvernregler",
-    "myFooterA10": "|Informasjonskapselpolicy|"
+    "myFooterA": "Merkevare",
+    "myFooterA1": "Design",
+    "myFooterA2": "Markedsføring",
+    "myFooterA3": "Annonse",
+    "myFooterA4": "Om oss",
+    "myFooterA5": "Kontakt",
+    "myFooterA6": "Jobber",
+    "myFooterA7": "Pressemappe",
+    "myFooterA8": "Bruksvilkår",
+    "myFooterA9": "Personvernregler",
+    "myFooterA10": "Informasjonskapselpolicy"
+  },
+  "language": {
+    "Change Language": "Bytt språk"
   }
 }
