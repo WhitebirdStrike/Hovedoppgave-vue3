@@ -7,7 +7,7 @@
     >
     <ul
       tabindex="0"
-      class="menu dropdown-content p-2 shadow bg base-100 rounded-box w-52 mt-4 z-20"
+      class="menu dropdown-content p-2 shadow bg base-100 rounded-box bg-black w-52 mt-4 z-20 text-sm font-semibold text-white sm:ml-3 sm:w-auto mx-4"
     >
       <template v-for="language in languages">
         <li @click="($event) => setLanguage(language.code)">
@@ -23,10 +23,13 @@
   //   import norwegianFlag from '../../assets/flags/norway.png';
   //   import englishFlag from '../../assets/flags/england.png';
 
+  import { useI18n } from 'vue-i18n';
+  const { t } = useI18n();
+
   //languages to select from
   const languages = ref([
-    { name: 'English', code: 'en' },
-    { name: 'Norwegian', code: 'nb' },
+    { name: t('navbar.pageEnglish'), code: 'en' },
+    { name: t('navbar.pageNorwegian'), code: 'nb' },
   ]);
 
   // Get language from local storage

@@ -4,7 +4,9 @@
     "pageDashboard": "Dashbord",
     "productpage": "Produktside",
     "pagetitle": "Min nettside",
-    "pageus": "Om oss"
+    "pageus": "Om oss",
+    "pageEnglish": "Engelsk",
+    "pageNorwegian": "Norsk"
   },
   "perks": {
     "hope": {

@@ -4,7 +4,9 @@
     "pageDashboard": "Dashboard",
     "productpage": "Productpage",
     "pagetitle": "My Site",
-    "pageus": "About us"
+    "pageus": "About us",
+    "pageEnglish": "English",
+    "pageNorwegian": "Norwegian"
   },
   "perks": {
     "hope": {
