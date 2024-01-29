@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
-import ProductView from '../views/Productsite.vue';
+import ProductView from '../views/ProductSite.vue';
 import MinSideView from '../views/Min side.vue';
 import OmOssView from '../views/Om oss.vue';
 import Page404 from '../components/Global/Page404.vue';
