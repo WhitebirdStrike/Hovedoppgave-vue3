@@ -25,13 +25,6 @@
             </div>
           </td>
 
-          <dialog :open="imageModalVisible" class="modal">
-            <div class="modal-box">
-              <img :src="perk.productImage" alt="" contain class="h-64 mx-32" />
-              <button class="btn" @click="closeImageModal">Close</button>
-            </div>
-          </dialog>
-
           <td>
             <button
               class="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
@@ -87,6 +80,13 @@
       <button class="" @click="deleteItem(perkIndex)">Delete</button>
       <button class="btn" @click="closeModal">Cancel</button>
     </div>
+    <!-- Display a larger image of the perk icon -->
+    <dialog :open="imageModalVisible" class="modal">
+      <div class="modal-box overflow-hidden">
+        <img :src="largeImage" :alt="largerImageTitle" contain class="h-64 mx-32" />
+        <button class="btn" @click="closeImageModal">Close</button>
+      </div>
+    </dialog>
   </main>
 </template>
 
@@ -209,8 +209,10 @@
 
   const imageModalVisible = ref(false);
   const largeImage = ref('');
+  const largerImageTitle = ref('');
   const openImageModal = (perk) => {
     largeImage.value = perk.productImage;
+    largerImageTitle.value = perk.Title;
     imageModalVisible.value = true;
     console.log(perk);
   };
